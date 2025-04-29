@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Gian Trujillo" />
+    <meta name="author" content="Gian Trujillo" />
+    <meta name="keywords" content="Gian Trujillo" />
+    <title>Around</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="icon" href="./favicon.svg" />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <!--<h1 class="header__title">Around<sup>The U.S.</sup></h1>-->
+        <div>
+          <img
+            class="header__logo"
+            alt="Logo de Around the U.S."
+            src="./favicon.svg"
+          />
+          <div class="header__line"></div>
+        </div>
+      </header>
+      <main>
+        <section class="profile">
+          <div class="profile__container">
+            <img
+              class="profile__image"
+              alt="Una foto de Jacques Cousteau"
+              src="./images/jacques_image.jpg"
+            />
+
+            <div class="profile__info">
+              <div class="profile__info-adjust">
+                <h1 class="profile__info-name">Jacques Cousteau</h1>
+                <img
+                  class="profile__edit-button"
+                  alt="icono de editar perfil"
+                  src="./images/edit_button.png"
+                />
+              </div>
+              <p class="profile__info-description">Explorador</p>
+            </div>
+          </div>
+          <img
+            class="profile__add-button"
+            alt="button para agregar informacion"
+            src="./images/Add Button.svg"
+          />
+        </section>
+        <section class="landscapes">
+          <div class="landscapes__card">
+            <img
+              class="landscapes__image"
+              alt="paisaje del Valle de Yosemite"
+              src="./images/valle_de_yosemite.jpg"
+            />
+            <div class="landscapes__card-description">
+              <h2 class="landscapes__card-title">Valle de Yosemite</h2>
+              <!--<label class="landscapes__like-button" for="like">
+                <input type="checkbox" id="like">
+                <span class="landscapes__heart-icon"></span>
+              </label>-->
+              <div class="landscapes__card-icon"></div>
+            </div>
+          </div>
+          <div class="landscapes__card">
+            <img
+              class="landscapes__image"
+              alt="paisaje del Lago Louise"
+              src="./images/lago_louise.jpg"
+            />
+            <div class="landscapes__card-description">
+              <h2 class="landscapes__card-title">Lago Louise</h2>
+              <div class="landscapes__card-icon"></div>
+            </div>
+          </div>
+          <div class="landscapes__card">
+            <img
+              class="landscapes__image"
+              alt="paisaje de las montañas calvas"
+              src="./images/montañas_calvas.jpg"
+            />
+            <div class="landscapes__card-description">
+              <h2 class="landscapes__card-title">Montañas Calvas</h2>
+              <div class="landscapes__card-icon"></div>
+            </div>
+          </div>
+          <div class="landscapes__card">
+            <img
+              class="landscapes__image"
+              alt="paisaje de Latemar"
+              src="./images/latemar.jpg"
+            />
+            <div class="landscapes__card-description">
+              <h2 class="landscapes__card-title">Latemar</h2>
+              <div class="landscapes__card-icon"></div>
+            </div>
+          </div>
+          <div class="landscapes__card">
+            <img
+              class="landscapes__image"
+              alt="paisaje del Parque Nacional de Vanoise"
+              src="./images/vanoise_national_park.jpg"
+            />
+            <div class="landscapes__card-description">
+              <h2 class="landscapes__card-title">Vanoise National Park</h2>
+              <div class="landscapes__card-icon"></div>
+            </div>
+          </div>
+          <div class="landscapes__card">
+            <img
+              class="landscapes__image"
+              alt="paisaje del Lago di Braies"
+              src="./images/lago_di_braies.jpg"
+            />
+            <div class="landscapes__card-description">
+              <h2 class="landscapes__card-title">Lago di Braies</h2>
+              <div class="landscapes__card-icon"></div>
+            </div>
+          </div>
+        </section>
+        <div class="popup">
+          <div class="popup__container">
+            <button id="close" class="popup__close-button">
+              <img
+                class="popup__close-image"
+                alt="close"
+                src="./images/close.svg"
+              />
+            </button>
+            <h3 class="popup__title">Editar Perfil</h3>
+            <form class="popup__form">
+              <input
+                id="name"
+                class="popup__field popup__field-name"
+                type="text"
+                placeholder="Nombre"
+                required
+              />
+              <input
+                id="Acerca_de_mi"
+                class="popup__field popup__field-job"
+                type="text"
+                placeholder="Acerca de mí"
+                required
+              />
+              <button class="popup__button">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2025 Around The U.S.</p>
+      </footer>
+    </div>
+    <script src="./pages/index.js"></script>
+  </body>
+</html>
