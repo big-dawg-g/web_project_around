@@ -16,3 +16,7 @@ Publicar fotos de las visitas alrededor de los Estados Unidos (EU) ya es mas fac
    Un lenguaje de programacion que ayuda con la interactividad de la pagina. Se utiliza para poder generar el popup cuando uno quiere editar su informacion y/o cerrar el popup.
 4. FIGMA - Planeamiento y diseño del layout del sitio
    Asegura que la pàgina sea tal cual como se pide el sitio y asegura que los sitios se estructuren del modo correcto en cualquier tamaño de dispositivo. Adicionalmente, brinda los tamaños, gruesor y, tipo de fuente para facilitar la configuracion de las fuentes en CSS
+
+# github pages
+
+github.com:big-dawg-g/web_project_around.git

@@ -14,7 +14,7 @@ open.addEventListener("click", function () {
 });
 
 function updateButtonState() {
-  let hasText = inputName.value.trim() !== "" || inputJob.value.trim() !== "";
+  let hasText = inputName.value.trim() || inputJob.value.trim();
 
   if (hasText) {
     saveButton.classList.add("popup__button-active");
