@@ -68,16 +68,31 @@
   background-color: black;
   border: 1px solid white;
   font-size: 30px;
+  border-radius: 2%;
 }
 
 .profile__add-button:hover {
   opacity: 60%;
 }
 
-@media screen and (max-width: 716px) {
+@media screen and (max-width: 768px) {
+  .profile {
+  }
+
+  .profile__image {
+    /*margin-left: 30px;*/
+  }
+
+  .profile__add-button {
+    /*margin-right: 30px;*/
+  }
+
   .profile__info-name {
     width: min-content;
   }
+}
+
+@media screen and (max-width: 716px) {
 }
 
 @media screen and (max-width: 550px) {
@@ -97,6 +112,7 @@
 
   .profile__image {
     margin-bottom: 4px;
+    margin-left: 0;
   }
 
   .profile__info-name {
@@ -119,5 +135,6 @@
   .profile__add-button {
     width: 280px;
     height: 50px;
+    margin-right: 0;
   }
 }

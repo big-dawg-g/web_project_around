@@ -92,6 +92,13 @@
   background-repeat: no-repeat;
 }
 
+@media screen and (max-width: 768px) {
+  .landscapes {
+    grid-template-columns: repeat(2, auto);
+    gap: 20px;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .landscapes {
     display: flex;

@@ -1,9 +1,9 @@
-let popup = document.querySelector(".popup");
-let close = popup.querySelector(".popup__close-button");
-let open = document.querySelector(".profile__edit-button");
-let inputName = document.querySelector(".popup__field-name");
-let inputJob = document.querySelector(".popup__field-job");
-let saveButton = document.querySelector(".popup__button");
+const popup = document.querySelector(".popup");
+const close = popup.querySelector(".popup__close-button");
+const open = document.querySelector(".profile__edit-button");
+const inputName = document.querySelector(".popup__field-name");
+const inputJob = document.querySelector(".popup__field-job");
+const saveButton = document.querySelector(".popup__button");
 
 close.addEventListener("click", function () {
   popup.classList.remove("popup__open");
@@ -14,7 +14,7 @@ open.addEventListener("click", function () {
 });
 
 function updateButtonState() {
-  let hasText = inputName.value.trim() || inputJob.value.trim();
+  const hasText = inputName.value.trim() || inputJob.value.trim();
 
   if (hasText) {
     saveButton.classList.add("popup__button-active");

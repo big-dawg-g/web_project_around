@@ -11,6 +11,12 @@
   color: #545454;
 }
 
+@media screen and (max-width: 768px) {
+  .footer {
+    max-width: 584px;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .footer {
     max-width: 280px;
