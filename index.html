@@ -45,75 +45,9 @@
           </div>
           <button class="profile__add-button">+</button>
         </section>
-        <section class="landscapes">
-          <div class="landscapes__card">
-            <img
-              class="landscapes__image"
-              alt="paisaje del Valle de Yosemite"
-              src="./images/valle_de_yosemite.jpg"
-            />
-            <div class="landscapes__card-description">
-              <h2 class="landscapes__card-title">Valle de Yosemite</h2>
-              <div class="landscapes__card-icon"></div>
-            </div>
-          </div>
-          <div class="landscapes__card">
-            <img
-              class="landscapes__image"
-              alt="paisaje del Lago Louise"
-              src="./images/lago_louise.jpg"
-            />
-            <div class="landscapes__card-description">
-              <h2 class="landscapes__card-title">Lago Louise</h2>
-              <div class="landscapes__card-icon"></div>
-            </div>
-          </div>
-          <div class="landscapes__card">
-            <img
-              class="landscapes__image"
-              alt="paisaje de las montañas calvas"
-              src="./images/montañas_calvas.jpg"
-            />
-            <div class="landscapes__card-description">
-              <h2 class="landscapes__card-title">Montañas Calvas</h2>
-              <div class="landscapes__card-icon"></div>
-            </div>
-          </div>
-          <div class="landscapes__card">
-            <img
-              class="landscapes__image"
-              alt="paisaje de Latemar"
-              src="./images/latemar.jpg"
-            />
-            <div class="landscapes__card-description">
-              <h2 class="landscapes__card-title">Latemar</h2>
-              <div class="landscapes__card-icon"></div>
-            </div>
-          </div>
-          <div class="landscapes__card">
-            <img
-              class="landscapes__image"
-              alt="paisaje del Parque Nacional de Vanoise"
-              src="./images/vanoise_national_park.jpg"
-            />
-            <div class="landscapes__card-description">
-              <h2 class="landscapes__card-title">Vanoise National Park</h2>
-              <div class="landscapes__card-icon"></div>
-            </div>
-          </div>
-          <div class="landscapes__card">
-            <img
-              class="landscapes__image"
-              alt="paisaje del Lago di Braies"
-              src="./images/lago_di_braies.jpg"
-            />
-            <div class="landscapes__card-description">
-              <h2 class="landscapes__card-title">Lago di Braies</h2>
-              <div class="landscapes__card-icon"></div>
-            </div>
-          </div>
-        </section>
-        <div class="popup">
+        <section class="landscapes"></section>
+
+        <div class="popup" id="popup__editer">
           <div class="popup__container">
             <button id="close" class="popup__close-button">
               <img
@@ -142,11 +76,76 @@
             </form>
           </div>
         </div>
+
+        <div class="popup" id="popup__add">
+          <div class="popup__container">
+            <button id="close" class="popup__close-button">
+              <img
+                class="popup__close-image"
+                alt="close"
+                src="./images/close.svg"
+              />
+            </button>
+            <h3 class="popup__title">Nuevo Lugar</h3>
+            <form class="popup__form">
+              <input
+                id="title"
+                class="popup__field popup__field-title"
+                type="text"
+                placeholder="Titulo"
+                required
+              />
+              <input
+                id="image_url"
+                class="popup__field popup__field-url"
+                type="text"
+                placeholder="URL del imagen"
+                required
+              />
+              <button class="popup__button">Crear</button>
+            </form>
+          </div>
+        </div>
+        <div class="popup__viewer" id="popup__image-viewer">
+          <div class="popup__container-viewer">
+            <button class="popup__close-button-viewer" id="close">
+              <img
+                class="popup__close-image-viewer"
+                alt="close"
+                src="./images/Close Icon.png"
+              />
+            </button>
+            <img class="popup__image" src="" alt="" />
+            <h2 class="popup__title-viewer"></h2>
+          </div>
+        </div>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&copy; 2025 Around The U.S.</p>
       </footer>
     </div>
+    <!-- <div class="popup" id="popup"></div> -->era para añadir el otro popup.
+    borrar
+    <template class="landscapes__template">
+      <div class="landscapes__card">
+        <img class="landscapes__image" alt="" src="" />
+        <div class="landscapes__card-description">
+          <h2 class="landscapes__card-title"></h2>
+          <div class="landscapes__card-icon"></div>
+        </div>
+        <div class="landscapes__card-trash"></div>
+      </div>
+      <!-- <div class="landscapes__popup">
+        <img class="landscapes__image-popup" alt="" src="" />
+        <button id="close" class="landscapes__close-button">
+          <img
+            class="landscapes__close-image"
+            alt="close"
+            src="./images/Close Icon.png"
+          />
+        </button>
+      </div> -->
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
