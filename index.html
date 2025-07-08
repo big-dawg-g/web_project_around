@@ -58,20 +58,30 @@
             </button>
             <h3 class="popup__title">Editar Perfil</h3>
             <form class="popup__form">
-              <input
-                id="name"
-                class="popup__field popup__field-name"
-                type="text"
-                placeholder="Nombre"
-                required
-              />
-              <input
-                id="Acerca_de_mi"
-                class="popup__field popup__field-job"
-                type="text"
-                placeholder="Acerca de mí"
-                required
-              />
+              <label class="popup__field-holder">
+                <input
+                  id="name"
+                  class="popup__field popup__field-name"
+                  type="text"
+                  placeholder="Nombre"
+                  required
+                  minlength="2"
+                  maxlength="40"
+                />
+                <span class="popup__field-error popup__name-error"></span>
+              </label>
+              <label class="popup__field-holder">
+                <input
+                  id="job"
+                  class="popup__field popup__field-job"
+                  type="text"
+                  placeholder="Acerca de mí"
+                  required
+                  minlength="2"
+                  maxlength="200"
+                />
+                <span class="popup__field-error popup__job-error"></span>
+              </label>
               <button class="popup__button">Guardar</button>
             </form>
           </div>
@@ -88,20 +98,28 @@
             </button>
             <h3 class="popup__title">Nuevo Lugar</h3>
             <form class="popup__form">
-              <input
-                id="title"
-                class="popup__field popup__field-title"
-                type="text"
-                placeholder="Titulo"
-                required
-              />
-              <input
-                id="image_url"
-                class="popup__field popup__field-url"
-                type="text"
-                placeholder="URL del imagen"
-                required
-              />
+              <label class="popup__field-holder">
+                <input
+                  id="title"
+                  class="popup__field popup__field-title"
+                  type="text"
+                  placeholder="Titulo"
+                  required
+                  minlength="2"
+                  maxlength="30"
+                />
+                <span class="popup__field-error popup__title-error"></span>
+              </label>
+              <label class="popup__field-holder">
+                <input
+                  id="image-url"
+                  class="popup__field popup__field-url"
+                  type="url"
+                  placeholder="URL del imagen"
+                  required
+                />
+                <span class="popup__field-error popup__image-url-error"></span>
+              </label>
               <button class="popup__button">Crear</button>
             </form>
           </div>
@@ -124,8 +142,7 @@
         <p class="footer__copyright">&copy; 2025 Around The U.S.</p>
       </footer>
     </div>
-    <!-- <div class="popup" id="popup"></div> -->era para añadir el otro popup.
-    borrar
+
     <template class="landscapes__template">
       <div class="landscapes__card">
         <img class="landscapes__image" alt="" src="" />
@@ -147,5 +164,6 @@
       </div> -->
     </template>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

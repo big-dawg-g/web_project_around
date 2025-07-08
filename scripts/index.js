@@ -3,7 +3,7 @@ const popupAdd = document.getElementById("popup__add");
 const popupImageViewer = document.getElementById("popup__image-viewer");
 const closeEditer = popupEditer.querySelector(".popup__close-button");
 const closeAdd = popupAdd.querySelector(".popup__close-button");
-const openDescription = document.querySelector(".profile__edit-button");
+const openEditer = document.querySelector(".profile__edit-button");
 const openUpdater = document.querySelector(".profile__add-button");
 const userName = document.querySelector(".profile__info-name");
 const userJob = document.querySelector(".profile__info-description");
@@ -18,6 +18,9 @@ const popupImage = popupImageViewer.querySelector(".popup__image");
 const popupTitle = popupImageViewer.querySelector(".popup__title-viewer");
 const closeImageViewer = popupImageViewer.querySelector(
   ".popup__close-button-viewer"
+);
+const popupViewerContainer = popupImageViewer.querySelector(
+  ".popup__container-viewer"
 );
 
 const initialCards = [
@@ -70,6 +73,15 @@ function addCard(title, src) {
     popupImage.alt = `Paisaje de ${title}`;
     popupTitle.textContent = title;
     popupImageViewer.classList.add("popup__open");
+    const popupRemoverViewer = (evt) => {
+      if (
+        evt.key === "Escape" &&
+        popupImageViewer.classList.contains("popup__open")
+      ) {
+        popupImageViewer.classList.remove("popup__open");
+      }
+    };
+    document.addEventListener("keydown", popupRemoverViewer);
   });
 
   cardContainer.prepend(cardElement);
@@ -82,28 +94,17 @@ closeImageViewer.addEventListener("click", () => {
   popupImage.src = "";
 });
 
-openDescription.addEventListener("click", function () {
+openEditer.addEventListener("click", function () {
   popupEditer.classList.add("popup__open");
+  inputName.value = userName.textContent;
+  inputJob.value = userJob.textContent;
+  toggleButtonState([inputName, inputJob], saveButtonEditer);
 });
 
 closeEditer.addEventListener("click", function () {
   popupEditer.classList.remove("popup__open");
 });
 
-function updateButtonStateEditer() {
-  const hasText = inputName.value.trim() || inputJob.value.trim();
-
-  if (hasText) {
-    saveButtonEditer.classList.add("popup__button-active");
-    saveButtonEditer.removeAttribute("disabled");
-  } else {
-    saveButtonEditer.classList.remove("popup__button-active");
-    saveButtonEditer.setAttribute("disabled", true);
-  }
-}
-
-inputName.addEventListener("input", updateButtonStateEditer);
-inputJob.addEventListener("input", updateButtonStateEditer);
 saveButtonEditer.addEventListener("click", function (e) {
   e.preventDefault();
   userName.textContent = inputName.value;
@@ -111,15 +112,43 @@ saveButtonEditer.addEventListener("click", function (e) {
   popupEditer.classList.remove("popup__open");
   inputName.value = "";
   inputJob.value = "";
-  updateButtonStateEditer();
 });
 
 openUpdater.addEventListener("click", function () {
   popupAdd.classList.add("popup__open");
 });
 
-closeAdd.addEventListener("click", function () {
+closeAdd.addEventListener("click", function (evt) {
   popupAdd.classList.remove("popup__open");
+});
+
+const clickOutside = () => {
+  const popupArray = Array.from(document.querySelectorAll(".popup"));
+  popupArray.forEach((popup) => {
+    const popupContainer = popup.querySelector(".popup__container");
+    popupContainer.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
+    popup.addEventListener("click", () => {
+      popup.classList.remove("popup__open");
+    });
+    const popupRemoverEsc = (evt) => {
+      if (evt.key === "Escape" && popup.classList.contains("popup__open")) {
+        popup.classList.remove("popup__open");
+      }
+    };
+    document.addEventListener("keydown", popupRemoverEsc);
+  });
+};
+
+clickOutside();
+
+popupViewerContainer.addEventListener("click", (event) => {
+  event.stopPropagation();
+});
+
+popupImageViewer.addEventListener("click", () => {
+  popupImageViewer.classList.remove("popup__open");
 });
 
 saveButtonAdd.addEventListener("click", function (e) {
@@ -128,19 +157,5 @@ saveButtonAdd.addEventListener("click", function (e) {
   popupAdd.classList.remove("popup__open");
   inputTitle.value = "";
   inputURL.value = "";
-  updateButtonStateAdd();
+  toggleButtonState([inputTitle, inputURL], saveButtonAdd);
 });
-
-function updateButtonStateAdd() {
-  const containsText = inputTitle.value.trim() || inputURL.value.trim();
-  if (containsText) {
-    saveButtonAdd.classList.add("popup__button-active");
-    saveButtonAdd.removeAttribute("disabled");
-  } else {
-    saveButtonAdd.classList.remove("popup__button-active");
-    saveButtonAdd.setAttribute("disabled", true);
-  }
-}
-
-inputTitle.addEventListener("input", updateButtonStateAdd);
-inputURL.addEventListener("input", updateButtonStateAdd);

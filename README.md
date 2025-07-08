@@ -13,7 +13,7 @@ Publicar fotos de las visitas alrededor de los Estados Unidos (EU) ya es mas fac
 2. CSS - Estilo del sitio.
    Con la ayuda de media queries, se hace posible ver esta pagina en cualquier dispositivo. Diseños se importan desde otros archivos CSS para reducir el tamaño del archivo para que pueda cargar mas rapido y eficientemente.
 3. JavaScript - Funcionalidad y Guarda información
-   Un lenguaje de programacion que ayuda con la interactividad de la pagina. Se utiliza para poder generar el popup cuando uno quiere editar su informacion y/o cerrar el popup.
+   Un lenguaje de programacion que ayuda con la interactividad de la pagina. Se utiliza para poder generar el popup cuando uno quiere editar su informacion y/o cerrar el popup. Tambien incluye validacion para campos de texto para facilitar la interaccion del usuario con la pagina.
 4. FIGMA - Planeamiento y diseño del layout del sitio
    Asegura que la pàgina sea tal cual como se pide el sitio y asegura que los sitios se estructuren del modo correcto en cualquier tamaño de dispositivo. Adicionalmente, brinda los tamaños, gruesor y, tipo de fuente para facilitar la configuracion de las fuentes en CSS
 
