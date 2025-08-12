@@ -35,6 +35,7 @@
   background: none;
   border: none;
   padding: 0;
+  cursor: pointer;
 }
 
 .popup__close-button:hover {
@@ -46,7 +47,7 @@
   height: 40px;
 }
 
-.popup__close-button-viewer {
+/*.popup__close-button-viewer {
   position: absolute;
   top: -40px;
   right: -40px;
@@ -62,7 +63,7 @@
 .popup__close-image-viewer {
   width: 40px;
   height: 40px;
-}
+}*/
 
 .popup__container {
   background-color: white;
@@ -76,11 +77,22 @@
   position: relative;
 }
 
-.popup__container-viewer {
+/*.popup__container-viewer {
   position: relative;
-  max-height: 75vh; */
+  max-height: 75vh;
   display: grid;
   grid-template-rows: 1fr auto;
+}*/
+
+.popup__container_viewer {
+  background-color: initial;
+  color: initial;
+  max-width: initial;
+  width: initial;
+  max-height: 75vh;
+  height: initial;
+  padding: initial;
+  border-radius: initial;
 }
 
 .popup__image {

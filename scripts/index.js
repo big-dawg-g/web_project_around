@@ -16,9 +16,7 @@ const saveButtonAdd = popupAdd.querySelector(".popup__button");
 const cardContainer = document.querySelector(".landscapes");
 const popupImage = popupImageViewer.querySelector(".popup__image");
 const popupTitle = popupImageViewer.querySelector(".popup__title-viewer");
-const closeImageViewer = popupImageViewer.querySelector(
-  ".popup__close-button-viewer"
-);
+const closeImageViewer = popupImageViewer.querySelector(".popup__close-button");
 const popupViewerContainer = popupImageViewer.querySelector(
-  ".popup__container-viewer"
+  ".popup__container_viewer"
 );

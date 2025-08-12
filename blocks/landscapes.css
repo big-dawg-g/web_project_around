@@ -46,6 +46,7 @@
   height: 19px;
   background-repeat: no-repeat;
   background-image: url(../images/like_icon.png);
+  cursor: pointer;
 }
 
 .landscapes__card-icon:hover {
@@ -70,6 +71,7 @@
   right: 15px;
   background-image: url(../images/Trash.png);
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .landscapes__card-trash:hover {

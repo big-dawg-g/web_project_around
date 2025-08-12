@@ -1,7 +1,6 @@
-closeImageViewer.addEventListener("click", () => {
-  popupImageViewer.classList.remove("popup__open");
-  popupImage.src = "";
-});
+import { Card, popupHandlerViewer, cardRenderer } from "./Card.js";
+import { UserInfo } from "./UserInfo.js";
+import { PopupWithForm } from "./PopupWithForm.js";
 
 openEditer.addEventListener("click", function () {
   popupEditer.classList.add("popup__open");
@@ -9,17 +8,6 @@ openEditer.addEventListener("click", function () {
   inputJob.value = userJob.textContent;
   saveButtonEditer.disabled = false;
   saveButtonEditer.classList.remove("popup__button_inactive");
-});
-
-closeEditer.addEventListener("click", function () {
-  popupEditer.classList.remove("popup__open");
-});
-
-saveButtonEditer.addEventListener("click", function (e) {
-  e.preventDefault();
-  userName.textContent = inputName.value;
-  userJob.textContent = inputJob.value;
-  popupEditer.classList.remove("popup__open");
 });
 
 openUpdater.addEventListener("click", function () {
@@ -32,27 +20,6 @@ closeAdd.addEventListener("click", function (evt) {
   popupAdd.classList.remove("popup__open");
 });
 
-const clickOutside = () => {
-  const popupArray = Array.from(document.querySelectorAll(".popup"));
-  popupArray.forEach((popup) => {
-    const popupContainer = popup.querySelector(".popup__container");
-    popupContainer.addEventListener("click", (event) => {
-      event.stopPropagation();
-    });
-    popup.addEventListener("click", () => {
-      popup.classList.remove("popup__open");
-    });
-    const popupRemoverEsc = (evt) => {
-      if (evt.key === "Escape" && popup.classList.contains("popup__open")) {
-        popup.classList.remove("popup__open");
-      }
-    };
-    document.addEventListener("keydown", popupRemoverEsc);
-  });
-};
-
-clickOutside();
-
 popupViewerContainer.addEventListener("click", (event) => {
   event.stopPropagation();
 });
@@ -61,15 +28,27 @@ popupImageViewer.addEventListener("click", () => {
   popupImageViewer.classList.remove("popup__open");
 });
 
-saveButtonAdd.addEventListener("click", function (e) {
-  e.preventDefault();
+const userDetails = new UserInfo({
+  name: ".profile__info-name",
+  job: ".profile__info-description",
+});
 
-  const cardElement = new Card(inputTitle.value, inputURL.value).generateCard();
-  cardContainer.prepend(cardElement);
+const popupHandlerEditer = new PopupWithForm("popup__editer", (data) => {
+  userDetails.setUserInfo(data.name, data.job);
+});
+popupHandlerEditer.setEventListeners();
 
+const popupHandlerAdd = new PopupWithForm("popup__add", () => {
+  const cardElement = new Card(
+    inputTitle.value,
+    inputURL.value,
+    popupHandlerViewer.open
+  ).generateCard();
+  cardRenderer.addItem(cardElement);
   popupAdd.classList.remove("popup__open");
   inputTitle.value = "";
   inputURL.value = "";
   saveButtonAdd.disabled = false;
   saveButtonAdd.classList.add("popup__button_inactive");
 });
+popupHandlerAdd.setEventListeners();

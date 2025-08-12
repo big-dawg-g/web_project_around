@@ -1,3 +1,6 @@
+import { Section } from "./Section.js";
+import { PopupWithImage } from "./PopupWithImage.js";
+
 const initialCards = [
   {
     name: "Lago di Braies",
@@ -25,9 +28,11 @@ const initialCards = [
   },
 ];
 
-class Card {
-  constructor(title, image) {
-    (this._title = title), (this._image = image);
+export class Card {
+  constructor(title, image, handleCardClick) {
+    this._title = title;
+    this._image = image;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -61,7 +66,7 @@ class Card {
     });
 
     this._cardImage.addEventListener("click", () => {
-      this._handleImagePopupOpen();
+      this._handleCardClick(this._image, this._title);
     });
     document.addEventListener("keydown", this._popupRemoverViewer);
     const deleteButton = this._element.querySelector(".landscapes__card-trash");
@@ -82,7 +87,28 @@ class Card {
   }
 }
 
-initialCards.forEach((card) => {
-  const cardElement = new Card(card.name, card.link).generateCard();
-  cardContainer.prepend(cardElement);
-});
+export const popupHandlerViewer = new PopupWithImage(
+  "popup__image-viewer",
+  ".popup__image",
+  ".popup__title-viewer"
+);
+
+popupHandlerViewer.setEventListeners();
+
+export const cardRenderer = new Section(
+  {
+    items: initialCards,
+    renderer: (card) => {
+      const cardElement = new Card(
+        card.name,
+        card.link,
+        popupHandlerViewer.open
+      ).generateCard();
+
+      cardRenderer.addItem(cardElement);
+    },
+  },
+  ".landscapes"
+);
+
+cardRenderer.renderItems();
