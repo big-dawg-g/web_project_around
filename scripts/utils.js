@@ -93,6 +93,7 @@ openUpdater.addEventListener("click", function () {
   popupAdd.classList.add("popup__open");
   inputTitle.value = "";
   inputURL.value = "";
+  saveButtonAdd.classList.add(".popup__button_inactive");
 });
 
 openAvatar.addEventListener("click", function () {
@@ -142,6 +143,8 @@ const popupHandlerAvatar = new PopupWithForm(
       .catch((err) => console.log(err))
       .finally(() => {
         popupHandlerAvatar.addLoadingText(false);
+        saveButtonAvatar.disabled = false;
+        saveButtonAvatar.classList.add("popup__button_inactive");
       });
   },
   "Actualizar"
@@ -180,9 +183,10 @@ const popupHandlerAdd = new PopupWithForm(
       .catch((err) => console.log(err))
       .finally(() => {
         popupHandlerAdd.addLoadingText(false);
+        saveButtonAdd.disabled = false;
+        saveButtonAdd.classList.add("popup__button_inactive");
+        // saveButtonAdd.classList.remove(".popup__button_inactive");
       });
-    saveButtonAdd.disabled = false;
-    saveButtonAdd.classList.add("popup__button_inactive");
   },
   "Crear"
 );

@@ -1,7 +1,5 @@
 export class UserInfo {
   constructor(data) {
-    // this._name = data.name;
-    // this._job = data.job;
     this._nameContainer = document.querySelector(data.name);
     this._jobContainer = document.querySelector(data.job);
     this._imageContainer = document.querySelector(data.imageURL);

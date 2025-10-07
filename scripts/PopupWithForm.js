@@ -22,9 +22,13 @@ export class PopupWithForm extends Popup {
   addLoadingText(isLoading) {
     if (isLoading) {
       this._popup.querySelector(".popup__button").textContent = "Guardando...";
+      this._popup
+        .querySelector(".popup__button")
+        .classList.remove("popup__button_inactive");
     } else {
       this._popup.querySelector(".popup__button").textContent =
         this._buttonText;
+      this.close();
     }
   }
 
@@ -34,7 +38,6 @@ export class PopupWithForm extends Popup {
       evt.preventDefault();
       this.addLoadingText(true);
       this._callback(this._getInputValues());
-      this.close();
     });
   }
 

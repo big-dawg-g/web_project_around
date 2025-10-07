@@ -17,6 +17,7 @@ const inputAvatar = document.querySelector(".popup__field-url");
 const inputURL = document.querySelector(".popup__field-url");
 const saveButtonEditer = popupEditer.querySelector(".popup__button");
 const saveButtonAdd = popupAdd.querySelector(".popup__button");
+const saveButtonAvatar = popupAvatar.querySelector(".popup__button");
 const cardContainer = document.querySelector(".landscapes");
 const popupImage = popupImageViewer.querySelector(".popup__image");
 const popupTitle = popupImageViewer.querySelector(".popup__title-viewer");
