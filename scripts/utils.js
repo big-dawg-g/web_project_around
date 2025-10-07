@@ -185,7 +185,6 @@ const popupHandlerAdd = new PopupWithForm(
         popupHandlerAdd.addLoadingText(false);
         saveButtonAdd.disabled = false;
         saveButtonAdd.classList.add("popup__button_inactive");
-        // saveButtonAdd.classList.remove(".popup__button_inactive");
       });
   },
   "Crear"

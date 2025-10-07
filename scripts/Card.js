@@ -45,8 +45,6 @@ export class Card {
         this._inactiveCardLike();
       }
       likeButton.classList.toggle("liked");
-
-      //fetch here to PATCH like boolean.
     });
 
     this._cardImage.addEventListener("click", () => {
@@ -55,10 +53,7 @@ export class Card {
     document.addEventListener("keydown", this._popupRemoverViewer);
     const deleteButton = this._element.querySelector(".landscapes__card-trash");
     deleteButton.addEventListener("click", () => {
-      //add code to open confirmation popup
-
       this._openConfirmation();
-      //this.removeCard();
     });
   }
 
