@@ -1,38 +1,18 @@
-import { Section } from "./Section.js";
-import { PopupWithImage } from "./PopupWithImage.js";
-
-const initialCards = [
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
-  },
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
-  },
-];
-
 export class Card {
-  constructor(title, image, handleCardClick) {
+  constructor(
+    title,
+    image,
+    handleCardClick,
+    openConfirmation,
+    activeCardLike,
+    inactiveCardLike
+  ) {
     this._title = title;
     this._image = image;
     this._handleCardClick = handleCardClick;
+    this._openConfirmation = openConfirmation;
+    this._activeCardLike = activeCardLike;
+    this._inactiveCardLike = inactiveCardLike;
   }
 
   _getTemplate() {
@@ -41,13 +21,6 @@ export class Card {
       .content.querySelector(".landscapes__card")
       .cloneNode(true);
     return cardElement;
-  }
-
-  _handleImagePopupOpen() {
-    popupImage.src = this._image;
-    popupImage.alt = `Paisaje de ${this._title}`;
-    popupTitle.textContent = this._title;
-    popupImageViewer.classList.add("popup__open");
   }
 
   _popupRemoverViewer(evt) {
@@ -59,10 +32,21 @@ export class Card {
     }
   }
 
+  removeCard() {
+    this._element.remove();
+  }
+
   _setEventListeners() {
     const likeButton = this._element.querySelector(".landscapes__card-icon");
-    likeButton.addEventListener("click", function () {
+    likeButton.addEventListener("click", () => {
+      if (!likeButton.classList.contains("liked")) {
+        this._activeCardLike();
+      } else {
+        this._inactiveCardLike();
+      }
       likeButton.classList.toggle("liked");
+
+      //fetch here to PATCH like boolean.
     });
 
     this._cardImage.addEventListener("click", () => {
@@ -71,7 +55,10 @@ export class Card {
     document.addEventListener("keydown", this._popupRemoverViewer);
     const deleteButton = this._element.querySelector(".landscapes__card-trash");
     deleteButton.addEventListener("click", () => {
-      this._element.remove();
+      //add code to open confirmation popup
+
+      this._openConfirmation();
+      //this.removeCard();
     });
   }
 
@@ -83,32 +70,7 @@ export class Card {
     this._element.querySelector(".landscapes__card-title").textContent =
       this._title;
     this._setEventListeners();
+
     return this._element;
   }
 }
-
-export const popupHandlerViewer = new PopupWithImage(
-  "popup__image-viewer",
-  ".popup__image",
-  ".popup__title-viewer"
-);
-
-popupHandlerViewer.setEventListeners();
-
-export const cardRenderer = new Section(
-  {
-    items: initialCards,
-    renderer: (card) => {
-      const cardElement = new Card(
-        card.name,
-        card.link,
-        popupHandlerViewer.open
-      ).generateCard();
-
-      cardRenderer.addItem(cardElement);
-    },
-  },
-  ".landscapes"
-);
-
-cardRenderer.renderItems();

@@ -1,4 +1,4 @@
-class FormValidator {
+export class FormValidator {
   constructor(config, formElement) {
     this._config = config;
     this._formElement = formElement;
@@ -69,17 +69,3 @@ class FormValidator {
     this._setEventListeners();
   }
 }
-
-const formEditer = popupEditer.querySelector(".popup__form");
-const formAdd = popupAdd.querySelector(".popup__form");
-const config = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__field",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_inactive",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__field-error_active",
-};
-
-new FormValidator(config, formEditer).enableValidation();
-new FormValidator(config, formAdd).enableValidation();

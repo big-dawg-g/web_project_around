@@ -1,9 +1,10 @@
 import { Popup } from "./Popup.js";
 
 export class PopupWithForm extends Popup {
-  constructor(popup, callback) {
+  constructor(popup, callback, buttonText) {
     super(popup);
     this._callback = callback;
+    this._buttonText = buttonText;
   }
 
   _getInputValues() {
@@ -18,10 +19,20 @@ export class PopupWithForm extends Popup {
     return fieldsObject;
   }
 
+  addLoadingText(isLoading) {
+    if (isLoading) {
+      this._popup.querySelector(".popup__button").textContent = "Guardando...";
+    } else {
+      this._popup.querySelector(".popup__button").textContent =
+        this._buttonText;
+    }
+  }
+
   setEventListeners() {
     super.setEventListeners();
     this._popup.addEventListener("submit", (evt) => {
       evt.preventDefault();
+      this.addLoadingText(true);
       this._callback(this._getInputValues());
       this.close();
     });

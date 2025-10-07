@@ -25,22 +25,27 @@
       <main>
         <section class="profile">
           <div class="profile__container">
-            <img
-              class="profile__image"
-              alt="Una foto de Jacques Cousteau"
-              src="./images/jacques_image.jpg"
-            />
+            <div class="profile__container-image">
+              <img class="profile__image" alt="Foto de perfil" src="" />
+              <button class="profile__image-change">
+                <img
+                  class="profile__image-button"
+                  alt="Cambio de foto de perfil"
+                  src="./images/profile_edit_button.png"
+                />
+              </button>
+            </div>
 
             <div class="profile__info">
               <div class="profile__info-adjust">
-                <h1 class="profile__info-name">Jacques Cousteau</h1>
+                <h1 class="profile__info-name"></h1>
                 <img
                   class="profile__edit-button"
                   alt="icono de editar perfil"
                   src="./images/edit_button.png"
                 />
               </div>
-              <p class="profile__info-description">Explorador</p>
+              <p class="profile__info-description"></p>
             </div>
           </div>
           <button class="profile__add-button">+</button>
@@ -137,6 +142,44 @@
             <h2 class="popup__title-viewer"></h2>
           </div>
         </div>
+        <div class="popup" id="popup__confirmation">
+          <div class="popup__container popup__container_confirm">
+            <button class="popup__close-button" id="close">
+              <img
+                class="popup__close-image-viewer"
+                alt="close"
+                src="./images/Close Icon.png"
+              />
+            </button>
+            <h3 class="popup__title">¿Estas seguro/a?</h3>
+            <button class="popup__button">si</button>
+          </div>
+        </div>
+        <div class="popup" id="popup__profile-pic">
+          <div class="popup__container popup__container_image">
+            <button id="close" class="popup__close-button">
+              <img
+                class="popup__close-image"
+                alt="close"
+                src="./images/close.svg"
+              />
+            </button>
+            <h3 class="popup__title">Cambiar foto de perfil</h3>
+            <form class="popup__form" id="popup__profile-pic-form">
+              <label class="popup__field-holder">
+                <input
+                  id="imageURL"
+                  class="popup__field popup__field-url"
+                  type="url"
+                  placeholder="URL de nueva foto de perfil"
+                  required
+                />
+                <span class="popup__field-error popup__imageURL-error"></span>
+              </label>
+              <button class="popup__button">Actualizar</button>
+            </form>
+          </div>
+        </div>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&copy; 2025 Around The U.S.</p>
@@ -162,5 +205,7 @@
     <script src="./scripts/PopupWithForm.js" type="module"></script>
     <script src="./scripts/PopupWithImage.js" type="module"></script>
     <script src="./scripts/UserInfo.js" type="module"></script>
+    <script src="./scripts/Api.js" type="module"></script>
+    <script src="./scripts/PopupWithConfirmation.js" type="module"></script>
   </body>
 </html>

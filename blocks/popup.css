@@ -47,24 +47,6 @@
   height: 40px;
 }
 
-/*.popup__close-button-viewer {
-  position: absolute;
-  top: -40px;
-  right: -40px;
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-.popup__close-button-viewer:hover {
-  opacity: 60%;
-}
-
-.popup__close-image-viewer {
-  width: 40px;
-  height: 40px;
-}*/
-
 .popup__container {
   background-color: white;
   color: black;
@@ -77,12 +59,13 @@
   position: relative;
 }
 
-/*.popup__container-viewer {
-  position: relative;
-  max-height: 75vh;
-  display: grid;
-  grid-template-rows: 1fr auto;
-}*/
+.popup__container_confirm {
+  max-height: 180px;
+}
+
+.popup__container_image {
+  max-height: 250px;
+}
 
 .popup__container_viewer {
   background-color: initial;
@@ -124,7 +107,6 @@
 .popup__form {
   display: flex;
   flex-direction: column;
-  /* position: relative; */
 }
 
 .popup__field-holder {
@@ -153,7 +135,7 @@
   color: red;
   opacity: 0;
   position: absolute;
-  top: calc(100% - 25px); /* como funciona calc? */
+  top: calc(100% - 25px);
   left: 0;
   transition: 0.4s;
   z-index: 1;
@@ -173,6 +155,7 @@
   border: 1px solid #c4c4c4;
   background-color: black;
   color: white;
+  width: 100%;
 }
 
 .popup__button_inactive {
